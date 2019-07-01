@@ -7,7 +7,8 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+.top-logo{width: 160px;overflow: hidden;margin: 10px 40px 10px 0px;}
+.top-logo img{width:100%;}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -18,11 +19,12 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.table-striped thead{cursor: pointer;}
 
 .App-link {
   color: #61dafb;
 }
-
+.navbar-light .navbar-nav .nav-link{margin: 0px 14px;}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -31,3 +33,20 @@
     transform: rotate(360deg);
   }
 }
+.content-area{margin: 2% 0px 0px 0px;}
+.navbar-expand-lg .navbar-nav{
+  margin: 0px auto;
+  width: 70%;
+}
+@media only screen and (max-width: 600px) {
+  .navbar-expand-lg .navbar-nav{
+    width: 100%;
+  }
+  .table-responsive-set {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+

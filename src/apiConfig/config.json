@@ -1,0 +1,4 @@
+{
+  "apiUrl": "https://jsonplaceholder.typicode.com/posts",
+  "apiEndpoint":"https://mosh-vidly-node-api.herokuapp.com/api"
+}

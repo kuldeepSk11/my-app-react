@@ -11,3 +11,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.messgaeMovieNo{margin: 20px auto;font-size: 26px;font-weight: 700;color: red;text-align: center;}
