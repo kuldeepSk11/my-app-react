@@ -10,7 +10,7 @@ class AddMovie extends Form {
     state ={
         data:{
             title:"",
-            genreId:'',
+            genreId:"",
             numberInStock:"",
             dailyRentalRate:""
         },
@@ -26,15 +26,15 @@ class AddMovie extends Form {
         genreId: Joi.string()
         .required()
         .label("Genre"),
-        numberInStock: Joi.string()
+        numberInStock: Joi.number()
         .required()
         .min(0)
-        .min(100)
+        .max(100)
         .label("Number In Stock"),
-        dailyRentalRate: Joi.string()
+        dailyRentalRate: Joi.number()
         .required()
         .min(0)
-        .min(10)
+        .max(10)
         .label("Daily Rental Rate"),
     }
 
@@ -43,22 +43,10 @@ class AddMovie extends Form {
         this.setState({ genres });
       }
     
-      async populateMovie() {
-        try {
-          const movieId = this.props.match.params.id;
-          if (movieId === "new") return;
-    
-          const { data: movie } = await getMovie(movieId);
-          this.setState({ data: this.mapToViewModel(movie) });
-        } catch (ex) {
-          if (ex.response && ex.response.status === 404)
-            this.props.history.replace("/not-found");
-        }
-      }
+      
 
-      async componentDidMount() {
+    async componentDidMount() {
         await this.populateGenres();
-        await this.populateMovie();
       }
 
     mapToViewModel(movie){
@@ -88,8 +76,8 @@ class AddMovie extends Form {
                     <form onSubmit={this.handleSubmit}>
                     {this.renderInput("title","Title")}
                     {this.renderSelect("genreId","Genre", this.state.genres)}
-                    {this.renderInput("numberInStock","Number in stock", "number")}
-                    {this.renderInput("dailyRentalRate","Rate")}
+                    {this.renderInput("numberInStock", "Number in Stock", "number")}
+                    {this.renderInput("dailyRentalRate", "Rate")}
                     {this.renderButton("Save")}
 
                     </form>

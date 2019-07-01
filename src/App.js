@@ -14,6 +14,8 @@ import ArticleCom from './component/projectComm/articles';
 import EventCom from './component/projectComm/event';
 import UsersRegister from './component/admin/userRegister';
 import UsersLogin from './component/admin/userLogin';
+import DashboardCom from './component/admin/dashboard';
+import ProfileCom from './component/admin/profile';
 import Logout from './component/admin/logout';
 import NotFound from './component/common/notFound';
 import './css/App.css';
@@ -36,10 +38,12 @@ class App extends Component {
           <TopNavigation data={data}/>
           <div className="content-area">
             <Switch>
+              />
               <Route path="/" exact component={Home} />
+             
               <Route path="/movies/:id" component={MovieDetails} />
-              <Route path="/movies" component={MovieList} />
               <Route path="/addMoive" component={AddMovie} />
+              <Route path="/movies" component={MovieList} />
               <Route path="/feed/" component={FeedCom} />
               <Route path="/communities/" component={CommunitiesCom} />
               <Route path="/champions/" component={ChampionsCom} />
@@ -47,12 +51,13 @@ class App extends Component {
               <Route path="/event/" component={EventCom} />
               <Route path="/meterailui/" component={MaterailUI} />
               <Route path="/login/" component={UsersLogin} />
+              <Route path="/dashboard" component={DashboardCom} />
+              <Route path="/profile" component={ProfileCom} />
               <Route path="/logout/" component={Logout} />
               <Route path="/register/" component={UsersRegister} />
-              
               <Redirect from="login" to="posts"/>
-              <Route path="/not-found" component={NotFound} />
               <Redirect to="not-found"/>
+              <Route path="/not-found" component={NotFound} />
               
             </Switch>
           </div>

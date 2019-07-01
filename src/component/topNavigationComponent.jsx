@@ -54,12 +54,16 @@ const TopNavigation = ({ data }) => {
                     )}
                     {data && (
                     <React.Fragment>
-                        <NavLink className="nav-item nav-link" to="/profile">
-                        {data.name}
-                        </NavLink>
-                        <NavLink className="nav-item nav-link" to="/logout">
-                        Logout
-                        </NavLink>
+
+                    <div className="dropdown">
+                            <a className="userProlie_img dropdown-toggle" id="menu1" data-toggle="dropdown">{data.name}
+                            <span className="caret"></span></a>
+                            <ul className="dropdown-menu" role="menu" aria-labelledby="menu1">
+                            <NavLink className="dropdown-item" role="presentation" to="/profile">Profile</NavLink> 
+                            <NavLink className="dropdown-item" role="presentation" to="/dashboard"> Dashboard</NavLink>
+                            <NavLink className="dropdown-item" role="presentation"to="/logout">Lagout</NavLink>
+                            </ul>
+                        </div>
                     </React.Fragment>
                     )}
                  

@@ -87,30 +87,30 @@ handleGenreSelect = genre => {
     this.setState({sortColumn});
   };
 
-     getPagedData = () => {
-        const {
-          pageSize,
-          currentPage,
-          sortColumn,
-          selectedGenre,
-          searchQuery,
-          movies: allMovies
-        } = this.state;
-    
-        let filtered = allMovies;
-        if (searchQuery)
-          filtered = allMovies.filter(m =>
-            m.title.toLowerCase().startsWith(searchQuery.toLowerCase())
-          );
-        else if (selectedGenre && selectedGenre._id)
-          filtered = allMovies.filter(m => m.genre._id === selectedGenre._id);
-    
-        const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
-    
-        const movies = paginate(sorted, currentPage, pageSize);
-    
-        return { totalCount: filtered.length, data: movies };
-      };
+  getPagedData = () => {
+    const {
+      pageSize,
+      currentPage,
+      sortColumn,
+      selectedGenre,
+      searchQuery,
+      movies: allMovies
+    } = this.state;
+
+    let filtered = allMovies;
+    if (searchQuery)
+      filtered = allMovies.filter(m =>
+        m.title.toLowerCase().startsWith(searchQuery.toLowerCase())
+      );
+    else if (selectedGenre && selectedGenre._id)
+      filtered = allMovies.filter(m => m.genre._id === selectedGenre._id);
+
+    const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
+
+    const movies = paginate(sorted, currentPage, pageSize);
+
+    return { totalCount: filtered.length, data: movies };
+  };
 
     render() { 
 
@@ -131,7 +131,7 @@ handleGenreSelect = genre => {
       const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
       const { user } = this.props;
   
-      if (count === 0) return <p className="messgaeMovieNo">There are no movies in the database.</p>;
+      //if (count === 0) return <p className="messgaeMovieNo">There are no movies in the database.</p>;
   
       const { totalCount, data: movies } = this.getPagedData();
 

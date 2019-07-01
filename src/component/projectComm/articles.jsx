@@ -1,24 +1,39 @@
-import React from "react";
+import React, { Component } from 'react';
+import axios from "axios";
+import ArticleCard from "../projectComm/nestedComponent/articlecard";
 
-/*
-// this function is old function
-function ArticleCom (){
+const key = '5ff73eef6bd74a64f1ad9b5f606b2854';
+//https://api.themoviedb.org/3/movie/upcoming?api_key=' + key +'&language=en-US&page=1';
 
-	return <h3> Article Components</h3>
+class ArticleCom extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+		  posts: []
+		};
+	  }
 
-}*/
+	componentDidMount() {
+		axios.get('https://jsonplaceholder.typicode.com/users')
+		  .then(res => {
+			const posts = res.data;
+			this.setState({ posts });
+		  });
+	  }
+	render() { 
+		console.log(this.state.posts);
+		return ( 
+			<React.Fragment>
+			<div className="container"> 
+		
+			{this.state.posts.map(post =>
 
-//myexport components type 
-//export const ArticleCom = () => <h3> Article Components</h3> // exmaple:- import {ArticleCom} from '../components/articles'; 
-
-// arrow function 
-// const ArticleCom = () => {
-// 	return (
-// 			<div>hello</div>
-// 		)
-// }
-
-const ArticleCom = () => <div className="container"><h3> Article Components</h3></div>
-
+				<ArticleCard key={post.id} item={post}/>
+			)}
+			</div>
+			</React.Fragment>
+		 );
+	}
+}
+ 
 export default ArticleCom;
-
