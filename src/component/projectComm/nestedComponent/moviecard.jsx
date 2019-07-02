@@ -60,7 +60,7 @@ const MovieCard = ({items}) => {
       <CardHeader
         avatar={
           <Avatar aria-label="Recipe" className={classes.avatar}>
-            {items.vote_count}
+            {items.id}
           </Avatar>
         }
         action={
@@ -68,8 +68,8 @@ const MovieCard = ({items}) => {
             <MoreVertIcon />
           </IconButton>
         }
-        title={items.title}
-        subheader={items.release_date}
+        title={items.name}
+        subheader={items.website}
       />
       <CardMedia
         className={classes.media}
@@ -78,7 +78,7 @@ const MovieCard = ({items}) => {
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-        {items.overview}
+        {items.email}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

@@ -14,8 +14,8 @@ import SearchBox from "../projectComm/searchBox";
 class MovieList extends Component {
     state = { 
         movies: [],
-        currentPage:1,
         genres:[],
+        currentPage:1,
         pageSize:4,
         searchQuery: "",
         selectedGenre: null,
@@ -36,7 +36,6 @@ class MovieList extends Component {
       }
 
     
-
       handleDelete = async movie => {
         const originalMovies = this.state.movies;
         const movies = originalMovies.filter(m => m._id !== movie._id);
@@ -45,8 +44,8 @@ class MovieList extends Component {
         try {
           await deleteMovie(movie._id);
         } catch (ex) {
-          if (ex.response && ex.response.status === 404) console.log("x");
-          toast.error("This movie has already been deleted.");
+          if (ex.response && ex.response.status === 404)
+            toast.error("This movie has already been deleted.");
     
           this.setState({ movies: originalMovies });
         }
@@ -129,11 +128,12 @@ handleGenreSelect = genre => {
       //   if(count === 0)
       //   return <p className="messgaeMovieNo">There are no movies in the database</p>
 
-      //const { length: count } = this.state.movies;
-      const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
-      //const { user } = this.props;
+    const { length: count } = this.state.movies;
+    const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
+    
+
   
-      //if (count === 0) return <p className="messgaeMovieNo">There are no movies in the database.</p>;
+      if (count === 0) return <p className="messgaeMovieNo">There are no movies in the database.</p>;
   
       const { totalCount, data: movies } = this.getPagedData();
       const user = auth.getCurrentUser();
@@ -164,7 +164,7 @@ handleGenreSelect = genre => {
                         movies={movies} 
                         sortColumn={sortColumn}
                         onLike={this.handleLike}
-                        onDelete={this.handlerDelete} 
+                        onDelete={this.handleDelete} 
                         onShort={this.handleShort}
                         />    
                     
