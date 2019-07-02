@@ -48,7 +48,7 @@ const MovieCard = ({items}) => {
     const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   //const {post} = items;
-  
+
   function handleExpandClick() {
     setExpanded(!expanded);
   }
@@ -68,8 +68,8 @@ const MovieCard = ({items}) => {
             <MoreVertIcon />
           </IconButton>
         }
-        title={items.title}
-        subheader={items.release_date}
+        title={items.name}
+        subheader={items.website}
       />
       <CardMedia
         className={classes.media}
@@ -77,8 +77,8 @@ const MovieCard = ({items}) => {
         title="Paella dish"
       />
       <CardContent>
-        <Typography className="movie-card-overview" variant="body2" color="textSecondary" component="p">
-        {items.overview}
+        <Typography variant="body2" color="textSecondary" component="p">
+        {items.email}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -116,7 +116,18 @@ const MovieCard = ({items}) => {
           <Typography>
           Adult : {items.adult}
           </Typography> 
-    
+          
+
+          <Typography paragraph>
+            Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook
+            without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat to
+            medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook
+            again without stirring, until mussels have opened and rice is just tender, 5 to 7
+            minutes more. (Discard any mussels that don’t open.)
+          </Typography>
+          <Typography>
+            Set aside off of the heat to let rest for 10 minutes, and then serve.
+          </Typography>
         </CardContent>
       </Collapse>
     </Card>
