@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import ArticleCard from "../projectComm/nestedComponent/articlecard";
 
-const key = '5ff73eef6bd74a64f1ad9b5f606b2854';
+//const key = '5ff73eef6bd74a64f1ad9b5f606b2854';
 //https://api.themoviedb.org/3/movie/upcoming?api_key=' + key +'&language=en-US&page=1';
 
 class ArticleCom extends Component {
@@ -21,7 +21,7 @@ class ArticleCom extends Component {
 		  });
 	  }
 	render() { 
-		console.log(this.state.posts);
+		//console.log(this.state.posts);
 		return ( 
 			<React.Fragment>
 			<div className="container"> 

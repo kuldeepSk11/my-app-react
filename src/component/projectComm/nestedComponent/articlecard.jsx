@@ -26,7 +26,7 @@ const ArticleCard = ({item}) => {
 	//console.log(item);
 	//const post = this.props;
 	//console.log(post);
-	const {post}=item;
+	const {post} = item;
 	const classes = useStyles();
 	
 	return (

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { toast } from "react-toastify";
+import auth from "../../services/authService";
 import Pagination from '../../component/common/pagination';
 import ListGroupNav from '../projectComm/nestedComponent/listGroup';
 import MovieTable from '../projectComm/nestedComponent/movieTable';
@@ -31,6 +32,7 @@ class MovieList extends Component {
     
         const { data: movies } = await getMovies();
         this.setState({ movies, genres });
+       
       }
 
     
@@ -127,15 +129,14 @@ handleGenreSelect = genre => {
       //   if(count === 0)
       //   return <p className="messgaeMovieNo">There are no movies in the database</p>
 
-      const { length: count } = this.state.movies;
+      //const { length: count } = this.state.movies;
       const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
-      const { user } = this.props;
+      //const { user } = this.props;
   
       //if (count === 0) return <p className="messgaeMovieNo">There are no movies in the database.</p>;
   
       const { totalCount, data: movies } = this.getPagedData();
-
-
+      const user = auth.getCurrentUser();
         return ( 
             <div className="container">
                 <br/>
@@ -145,7 +146,8 @@ handleGenreSelect = genre => {
                 
                 <div className="row">
                         <div className="col-md-4">
-                        <Link className="btn btn-primary col-12 p-3"  to="/addMoive">Add Movie</Link>
+                        {user && (
+                        <Link className="btn btn-primary col-12 p-3"  to="/addMoive">Add Movie</Link>)}
                         <div className="clearfix"></div><br/>
                             <ListGroupNav 
                                 items={this.state.genres} 

@@ -5,8 +5,6 @@ import { NavLink} from 'react-router-dom';
 
 const TopNavigation = ({ data }) => {
 
-    console.log(data);
-
         return ( 
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container">

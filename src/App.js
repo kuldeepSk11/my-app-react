@@ -38,9 +38,8 @@ class App extends Component {
           <TopNavigation data={data}/>
           <div className="content-area">
             <Switch>
-              />
-              <Route path="/" exact component={Home} />
-             
+            
+              <Route path="/" exact component={Home} /> 
               <Route path="/movies/:id" component={MovieDetails} />
               <Route path="/addMoive" component={AddMovie} />
               <Route path="/movies" component={MovieList} />
