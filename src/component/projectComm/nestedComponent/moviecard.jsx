@@ -48,7 +48,7 @@ const MovieCard = ({items}) => {
     const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   //const {post} = items;
-
+  
   function handleExpandClick() {
     setExpanded(!expanded);
   }
@@ -60,7 +60,7 @@ const MovieCard = ({items}) => {
       <CardHeader
         avatar={
           <Avatar aria-label="Recipe" className={classes.avatar}>
-            {items.id}
+            {items.vote_count}
           </Avatar>
         }
         action={
@@ -68,8 +68,8 @@ const MovieCard = ({items}) => {
             <MoreVertIcon />
           </IconButton>
         }
-        title={items.name}
-        subheader={items.website}
+        title={items.title}
+        subheader={items.release_date}
       />
       <CardMedia
         className={classes.media}
@@ -77,8 +77,8 @@ const MovieCard = ({items}) => {
         title="Paella dish"
       />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-        {items.email}
+        <Typography className="movie-card-overview" variant="body2" color="textSecondary" component="p">
+        {items.overview}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

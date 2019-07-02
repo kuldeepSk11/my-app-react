@@ -15,10 +15,10 @@ class Home extends Component {
 	  }
 
 	componentDidMount() {
-		axios.get('https://jsonplaceholder.typicode.com/users')
+		axios.get('https://api.themoviedb.org/3/movie/upcoming?api_key=' + key +'&language=en-US&page=1')
 		  .then(res => {
 			//console.log(res);
-			const movies = res.data;
+			const movies = res.data.results;
 			this.setState({ movies });
 			//console.log(this.state.movies);
 		  });
